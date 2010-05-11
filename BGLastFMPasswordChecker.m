@@ -23,7 +23,7 @@
 	NSMutableURLRequest *passwordRequest = [[NSMutableURLRequest alloc] initWithURL:passwordCheckURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
 	[passwordRequest setHTTPMethod:@"GET"];
 
-	NSError *passwordAccessError;
+	NSError *passwordAccessError = NULL;
 	NSData *passwordResponseData = [NSURLConnection sendSynchronousRequest:passwordRequest returningResponse:nil error:&passwordAccessError];
 			
 	[passwordRequest release];

@@ -84,7 +84,7 @@
 		
 		[postString release];
 
-		NSError *postingError;
+		NSError *postingError = NULL;
 		NSHTTPURLResponse *response = nil;
 		NSData *scrobbleResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&postingError];
 		

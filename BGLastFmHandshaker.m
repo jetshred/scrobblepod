@@ -44,7 +44,7 @@
 		[handshakeRequest setHTTPMethod:@"GET"];
 		[handshakeRequest setTimeoutInterval:10.0];
 
-		NSError *handshakeAccessError;
+		NSError *handshakeAccessError = NULL;
 		NSHTTPURLResponse *response = nil;
 		NSData *handshakeResponseData = [NSURLConnection sendSynchronousRequest:handshakeRequest returningResponse:&response error:&handshakeAccessError];
 			

@@ -27,7 +27,7 @@
 	[request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
 	[request setTimeoutInterval:10.00];// timeout scrobble posting after 20 seconds
 
-	NSError *postingError;
+	NSError *postingError = NULL;
 	NSHTTPURLResponse *response = nil;
 	NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&postingError];
 	

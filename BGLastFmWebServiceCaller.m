@@ -14,7 +14,7 @@
 -(BGLastFmWebServiceResponse *)callWithParameters:(BGLastFmWebServiceParameterList *)parameterList usingPostMethod:(BOOL)postBool usingAuthentication:(BOOL)needAuthentication {
 	BGLastFmWebServiceResponse *responseObject;
 	BOOL callWasSent = NO;
-	if (!postBool || (postBool && [parameterList parameterForKey:@"sk"]!=nil && [parameterList parameterForKey:@"sk"].length>0)) {
+	if (!postBool || (postBool && [parameterList parameterForKey:@"sk"]!=nil && [[parameterList parameterForKey:@"sk"] length]>0)) {
 		NSString *postString = [NSString stringWithFormat:@"%@%@",
 			[parameterList concatenatedParametersString],
 			(needAuthentication ? [NSString stringWithFormat:@"&api_sig=%@", [parameterList methodSignature]] : @"" )
@@ -41,7 +41,7 @@
 		[request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
 		[request setTimeoutInterval:10.00];// timeout scrobble posting after 20 seconds
 
-		NSError *postingError;
+		NSError *postingError = NULL;
 		NSHTTPURLResponse *response = nil;
 		NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&postingError];
 		
